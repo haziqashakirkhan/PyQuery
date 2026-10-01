@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>PyQuery — AI Study Assistant</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600&display=swap"
+        rel="stylesheet"
+    >
+
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+
+<body>
+
+    <header class="navbar">
+        <div class="brand">
+            <div class="brand-mark">P</div>
+
+            <div>
+                <div class="brand-name">PyQuery</div>
+                <div class="brand-subtitle">AI Study Assistant</div>
+            </div>
+        </div>
+
+        <div class="nav-badge">
+            RAG POWERED
+        </div>
+    </header>
+
+
+    <main>
+
+        <!-- HERO -->
+
+        <section class="hero">
+
+            <div class="hero-content">
+
+                <div class="eyebrow">
+                    PYTHON PROGRAMMING NOTES
+                </div>
+
+                <h1>
+                    Ask your notes.
+                    <span>Get answers.</span>
+                </h1>
+
+                <p>
+                    Upload five Python programming chapters and use
+                    Retrieval-Augmented Generation to ask questions
+                    directly from your study material.
+                </p>
+
+                <a href="#upload" class="primary-button">
+                    Start studying
+                </a>
+
+            </div>
+
+            <div class="hero-card">
+
+                <div class="card-top">
+                    <span class="status-dot"></span>
+                    Study index
+                </div>
+
+                <div class="card-title">
+                    Python Programming
+                </div>
+
+                <div class="card-description">
+                    5 chapters ready for retrieval
+                </div>
+
+                <div class="progress">
+                    <div class="progress-fill"></div>
+                </div>
+
+                <div class="card-footer">
+                    <span>Embeddings</span>
+                    <span>ChromaDB</span>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- UPLOAD -->
+
+        <section class="section" id="upload">
+
+            <div class="section-heading">
+
+                <div class="section-number">
+                    01
+                </div>
+
+                <div>
+                    <h2>Upload your chapters</h2>
+
+                    <p>
+                        Select exactly five Python programming PDFs.
+                        They will be processed and converted into searchable embeddings.
+                    </p>
+                </div>
+
+            </div>
+
+
+            <div class="upload-box">
+
+                <input
+                    type="file"
+                    id="pdfInput"
+                    accept=".pdf"
+                    multiple
+                    hidden
+                >
+
+                <label for="pdfInput" class="upload-label">
+
+                    <div class="upload-icon">
+                        +
+                    </div>
+
+                    <div>
+                        <strong>Select 5 PDF chapters</strong>
+
+                        <span>
+                            All files should contain Python programming notes.
+                        </span>
+                    </div>
+
+                </label>
+
+
+                <div id="fileList" class="file-list"></div>
+
+
+                <button
+                    id="buildBtn"
+                    class="primary-button full"
+                    disabled
+                >
+                    Create study index
+                </button>
+
+
+                <div id="uploadStatus" class="status"></div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ASK -->
+
+        <section class="section ask-section">
+
+            <div class="section-heading">
+
+                <div class="section-number">
+                    02
+                </div>
+
+                <div>
+                    <h2>Ask PyQuery</h2>
+
+                    <p>
+                        Ask a question about your uploaded chapters.
+                        PyQuery retrieves relevant information before sending
+                        the context to Grok.
+                    </p>
+                </div>
+
+            </div>
+
+
+            <div class="question-box">
+
+                <textarea
+                    id="question"
+                    placeholder="Example: What is the difference between a list and a tuple?"
+                    rows="4"
+                ></textarea>
+
+                <div class="question-footer">
+
+                    <span id="questionStatus">
+                        Study index required
+                    </span>
+
+                    <button
+                        id="askBtn"
+                        class="primary-button"
+                        disabled
+                    >
+                        Ask PyQuery
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- ANSWER -->
+
+            <div id="answerContainer" class="answer-container hidden">
+
+                <div class="answer-header">
+                    <span class="answer-label">PYQUERY ANSWER</span>
+                </div>
+
+                <div id="answer" class="answer"></div>
+
+                <div id="sources" class="sources"></div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <footer>
+        <span>PyQuery</span>
+        <span>RAG • Embeddings • ChromaDB • Grok</span>
+    </footer>
+
+
+    <script src="/static/script.js"></script>
+
+</body>
+</html>
